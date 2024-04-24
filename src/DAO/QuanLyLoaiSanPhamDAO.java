@@ -12,11 +12,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class QuanLyLoaiSanPhamDAO {
-    
+
     ConnectionDB qllspConnection;
-    
+
     public QuanLyLoaiSanPhamDAO() {
 
     }
@@ -72,7 +71,7 @@ public class QuanLyLoaiSanPhamDAO {
     public Boolean add(LoaiSanPham lsp) {
         qllspConnection = new ConnectionDB();
         Boolean ok = qllspConnection.sqlUpdate("INSERT INTO `loaisanpham` (`MALOAI`, `TENLOAI`) VALUES ('"
-                + lsp.getMaLoai()+ "', '" + lsp.getTenLoai()+ "');");
+                + lsp.getMaLoai() + "', '" + lsp.getTenLoai() + "');");
         qllspConnection.closeConnect();
         return ok;
     }
@@ -87,7 +86,7 @@ public class QuanLyLoaiSanPhamDAO {
     public Boolean update(String maLoai, String tenLoai) {
         qllspConnection = new ConnectionDB();
         Boolean ok = qllspConnection.sqlUpdate("UPDATE `loaisanpham` SET "
-                + "TENLOAI='" + tenLoai 
+                + "TENLOAI='" + tenLoai
                 + "' where MALOAI='" + maLoai + "'");
         qllspConnection.closeConnect();
         return ok;

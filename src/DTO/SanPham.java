@@ -1,6 +1,7 @@
 package DTO;
 
 public class SanPham {
+
     private String maSP, maLoaiSP, maNSX, tenSP;
     private int soLuong;
     private int giaTien;
@@ -77,13 +78,13 @@ public class SanPham {
 
     @Override
     public String toString() {
-        return "SanPham{" +
-                "maSP='" + maSP + '\'' +
-                ", maLoaiSP='" + maLoaiSP + '\'' +
-                ", maNSX='" + maNSX + '\'' +
-                ", tenSP='" + tenSP + '\'' +
-                ", soLuong=" + soLuong +
-                ", giaTien=" + giaTien +
-                '}';
+        return "SanPham{"
+                + "maSP='" + maSP + '\''
+                + ", maLoaiSP='" + maLoaiSP + '\''
+                + ", maNSX='" + maNSX + '\''
+                + ", tenSP='" + tenSP + '\''
+                + ", soLuong=" + soLuong
+                + ", giaTien=" + giaTien
+                + '}';
     }
 }

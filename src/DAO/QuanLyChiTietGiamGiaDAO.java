@@ -13,11 +13,14 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class QuanLyChiTietGiamGiaDAO {
+
     ConnectionDB qlctggConnection;
-    public QuanLyChiTietGiamGiaDAO(){
-        
+
+    public QuanLyChiTietGiamGiaDAO() {
+
     }
-        public ArrayList<ChiTietGiamGia> readDB() {
+
+    public ArrayList<ChiTietGiamGia> readDB() {
         qlctggConnection = new ConnectionDB();
         ArrayList<ChiTietGiamGia> dssp = new ArrayList<>();
         try {
@@ -68,9 +71,9 @@ public class QuanLyChiTietGiamGiaDAO {
     public Boolean add(ChiTietGiamGia gg) {
         qlctggConnection = new ConnectionDB();
         Boolean ok = qlctggConnection.sqlUpdate("INSERT INTO `chitietgiamgia` (`MAGIAMGIA`, `MASANPHAM`, `CHIETKHAU`) VALUES ('"
-                + gg.getMaGiamGia()+ "', '"
-                + gg.getMaSanPham()+ "', '"                
-                + gg.getChietKhau()+ "')");
+                + gg.getMaGiamGia() + "', '"
+                + gg.getMaSanPham() + "', '"
+                + gg.getChietKhau() + "')");
         qlctggConnection.closeConnect();
         return ok;
     }
@@ -84,7 +87,7 @@ public class QuanLyChiTietGiamGiaDAO {
 
     public Boolean update(String magg, String masp, int chietkhau) {
         qlctggConnection = new ConnectionDB();
-        String query ="UPDATE chitietgiamgia SET CHIETKHAU='"+chietkhau+"' WHERE MAGIAMGIA='"+magg+"' AND MASANPHAM='"+masp+"'";
+        String query = "UPDATE chitietgiamgia SET CHIETKHAU='" + chietkhau + "' WHERE MAGIAMGIA='" + magg + "' AND MASANPHAM='" + masp + "'";
         System.out.println(query);
         Boolean ok = qlctggConnection.sqlUpdate(query);
         qlctggConnection.closeConnect();
@@ -95,5 +98,4 @@ public class QuanLyChiTietGiamGiaDAO {
         qlctggConnection.closeConnect();
     }
 
-    
 }

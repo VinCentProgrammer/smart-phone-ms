@@ -1,6 +1,7 @@
 package DTO;
 
 public class ChiTietGiamGia {
+
     private String maGiamGia;
     private String maSanPham;
     private int chietKhau;
@@ -8,11 +9,13 @@ public class ChiTietGiamGia {
     public ChiTietGiamGia() {
         ;
     }
+
     public ChiTietGiamGia(String maGiamGia, String maSanPham, int chietKhau) {
         this.maGiamGia = maGiamGia;
         this.maSanPham = maSanPham;
         this.chietKhau = chietKhau;
     }
+
     public ChiTietGiamGia(ChiTietGiamGia ctgg) {
         this.maGiamGia = ctgg.getMaGiamGia();
         this.maSanPham = ctgg.getMaSanPham();
@@ -44,4 +47,3 @@ public class ChiTietGiamGia {
     }
 
 }
-

@@ -25,7 +25,6 @@ public class CopyFileStream {
             int length;
 
             while ((length = fis.read(buffer)) > 0) {
-
                 fos.write(buffer, 0, length);
             }
         }

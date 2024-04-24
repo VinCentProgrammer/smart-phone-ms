@@ -1,6 +1,7 @@
 package DTO;
 
 public class ThongKeSanPham {
+
     private String maSanPham;
     private String tenSanPham;
     private int soLuong;

@@ -1,9 +1,11 @@
 package DTO;
 
 public class NhanVien {
-    private String maNhanVien, ho, ten, gioiTinh, Email, diaChi, chucVu; 
+
+    private String maNhanVien, ho, ten, gioiTinh, Email, diaChi, chucVu;
     private int luong;
-    private String SDT, hinhAnh,chuThich;
+    private String SDT, hinhAnh, chuThich;
+
     public NhanVien() {
         ;
     }
@@ -22,9 +24,7 @@ public class NhanVien {
         this.chuThich = chuThich;
     }
 
-    
-    
-    public NhanVien(NhanVien nv){
+    public NhanVien(NhanVien nv) {
         this.maNhanVien = nv.getMaNhanVien();
         this.ho = nv.getHo();
         this.ten = nv.getTen();
@@ -45,11 +45,11 @@ public class NhanVien {
     public void setMaNhanVien(String maNhanVien) {
         this.maNhanVien = maNhanVien;
     }
-    
+
     public String getHo() {
         return ho;
     }
-    
+
     public void setHo(String ho) {
         this.ho = ho;
     }
@@ -102,7 +102,6 @@ public class NhanVien {
         this.luong = luong;
     }
 
-    
     public String getSDT() {
         return SDT;
     }
@@ -127,7 +126,4 @@ public class NhanVien {
         this.chuThich = chuThich;
     }
 
-    
-    
-    
 }

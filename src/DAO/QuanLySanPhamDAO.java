@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class QuanLySanPhamDAO {
 
     ConnectionDB qlspConnection;
@@ -32,7 +31,7 @@ public class QuanLySanPhamDAO {
                     String masp = r.getString("MASANPHAM");
                     String tensp = r.getString("TENSANPHAM");
                     String maloai = r.getString("MALOAI");
-                    String mansx = r.getString("MANSX");                    
+                    String mansx = r.getString("MANSX");
                     int soluong = r.getInt("SOLUONG");
                     int giatien = r.getInt("GIATIEN");
                     dssp.add(new SanPham(masp, tensp, maloai, mansx, soluong, giatien));
@@ -59,7 +58,7 @@ public class QuanLySanPhamDAO {
                     String masp = r.getString("MASANPHAM");
                     String tensp = r.getString("TENSANPHAM");
                     String maloai = r.getString("MALOAI");
-                    String mansx = r.getString("MANSX");                    
+                    String mansx = r.getString("MANSX");
                     int soluong = r.getInt("SOLUONG");
                     int giatien = r.getInt("GIATIEN");
                     dssp.add(new SanPham(mansx, tensp, maloai, mansx, soluong, giatien));
@@ -78,12 +77,12 @@ public class QuanLySanPhamDAO {
     public Boolean add(SanPham sp) {
         qlspConnection = new ConnectionDB();
         String query = "INSERT INTO `sanpham` (`MASANPHAM`, `TENSANPHAM`, `MALOAI`, `MANSX`, `SOLUONG`, `GIATIEN`) VALUES ('"
-                + sp.getMaSP()+ "', '"
-                + sp.getTenSP()+ "', '"
-                + sp.getMaLoaiSP()+ "', '"
-                + sp.getMaNSX()+ "', '"
-                + sp.getSoLuong()+ "', '"
-                + sp.getGiaTien()+ "')";
+                + sp.getMaSP() + "', '"
+                + sp.getTenSP() + "', '"
+                + sp.getMaLoaiSP() + "', '"
+                + sp.getMaNSX() + "', '"
+                + sp.getSoLuong() + "', '"
+                + sp.getGiaTien() + "')";
         System.out.println(query);
         Boolean ok = qlspConnection.sqlUpdate(query);
         qlspConnection.closeConnect();
@@ -92,7 +91,7 @@ public class QuanLySanPhamDAO {
 
     public Boolean delete(String masp) {
         qlspConnection = new ConnectionDB();
-        String query="DELETE FROM sanpham WHERE MASANPHAM='" + masp + "'";
+        String query = "DELETE FROM sanpham WHERE MASANPHAM='" + masp + "'";
         System.out.println(query);
         Boolean ok = qlspConnection.sqlUpdate(query);
         qlspConnection.closeConnect();

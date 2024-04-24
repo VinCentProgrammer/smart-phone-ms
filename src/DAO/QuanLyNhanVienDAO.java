@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class QuanLyNhanVienDAO {
 
     ConnectionDB qlnvConnection;
@@ -80,25 +79,25 @@ public class QuanLyNhanVienDAO {
         }
         return dsnv;
     }
-    
+
     public Boolean add(NhanVien nv) {
         qlnvConnection = new ConnectionDB();
         Boolean ok = qlnvConnection.sqlUpdate("INSERT INTO `nhanvien` (`MANHANVIEN`,`HONV`, `TENNV`, `GIOITINH`, `EMAIL`,`DIACHI`,`CHUCVU`,`LUONG`, `SDT`, `HINHANH`, `CHUTHICH`) VALUES ('"
-                + nv.getMaNhanVien()+ "', '"
-                + nv.getTen()+ "', '" 
-                + nv.getHo()+ "', '" 
-                + nv.getGioiTinh()+ "', '" 
-                + nv.getEmail()+ "', '" 
-                + nv.getDiaChi() + "', '" 
-                + nv.getChucVu()+ "', '" 
-                + nv.getLuong()+ "', '" 
-                + nv.getSDT() + "', '" 
-                + nv.getHinhAnh()+ "', '"
-                + nv.getChuThich()+ "');");
+                + nv.getMaNhanVien() + "', '"
+                + nv.getTen() + "', '"
+                + nv.getHo() + "', '"
+                + nv.getGioiTinh() + "', '"
+                + nv.getEmail() + "', '"
+                + nv.getDiaChi() + "', '"
+                + nv.getChucVu() + "', '"
+                + nv.getLuong() + "', '"
+                + nv.getSDT() + "', '"
+                + nv.getHinhAnh() + "', '"
+                + nv.getChuThich() + "');");
         qlnvConnection.closeConnect();
         return ok;
     }
-    
+
     public Boolean delete(String maNhanVien) {
         qlnvConnection = new ConnectionDB();
         Boolean ok = qlnvConnection.sqlUpdate("DELETE FROM `nhanvien` WHERE `nhanvien`.`MANHANVIEN` = '" + maNhanVien + "'");
@@ -117,20 +116,21 @@ public class QuanLyNhanVienDAO {
                 + "',CHUCVU='" + chucVu
                 + "',LUONG='" + luong
                 + "',SDT='" + SDT
-                + "',HINHANH='" + hinhAnh 
-                + "',CHUTHICH='" + chuThich 
+                + "',HINHANH='" + hinhAnh
+                + "',CHUTHICH='" + chuThich
                 + "' where MANHANVIEN='" + maNhanVien + "'");
         qlnvConnection.closeConnect();
         return ok;
     }
+
     public Boolean checkLogin(String email, String sdt) {
         qlnvConnection = new ConnectionDB();
-        String query = "SELECT COUNT(MANHANVIEN) AS isNULL FROM nhanvien WHERE EMAIL='"+ email +"' AND SDT='"+sdt+"'";
+        String query = "SELECT COUNT(MANHANVIEN) AS isNULL FROM nhanvien WHERE EMAIL='" + email + "' AND SDT='" + sdt + "'";
         try {
             ResultSet r = qlnvConnection.sqlQuery(query);
             if (r != null) {
                 int count = r.getInt("isNULL");
-                if(count == 1) {
+                if (count == 1) {
                     return true;
                 }
             }

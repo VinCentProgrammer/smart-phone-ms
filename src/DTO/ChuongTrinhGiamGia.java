@@ -3,18 +3,21 @@ package DTO;
 import java.time.LocalDate;
 
 public class ChuongTrinhGiamGia {
+
     private String maGiamGia, tenChuongTrinh;
     private LocalDate ngayBatDau, ngayKetThuc;
 
     public ChuongTrinhGiamGia() {
         ;
     }
+
     public ChuongTrinhGiamGia(String maGiamGia, String tenChuongTrinh, LocalDate ngayBatDau, LocalDate ngayKetThuc) {
         this.maGiamGia = maGiamGia;
         this.tenChuongTrinh = tenChuongTrinh;
         this.ngayBatDau = ngayBatDau;
         this.ngayKetThuc = ngayKetThuc;
     }
+
     public ChuongTrinhGiamGia(ChuongTrinhGiamGia ctgg) {
         this.maGiamGia = ctgg.getMaGiamGia();
         this.tenChuongTrinh = ctgg.getTenChuongTrinh();
@@ -53,6 +56,5 @@ public class ChuongTrinhGiamGia {
     public void setNgayKetThuc(LocalDate ngayKetThuc) {
         this.ngayKetThuc = ngayKetThuc;
     }
-    
-    
+
 }

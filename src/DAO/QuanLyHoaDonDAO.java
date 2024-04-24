@@ -13,7 +13,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class QuanLyHoaDonDAO {
 
     ConnectionDB qlhdconnection;
@@ -48,23 +47,23 @@ public class QuanLyHoaDonDAO {
         }
         return dshd;
     }
-    
+
     public Boolean add(HoaDon hd) {
         qlhdconnection = new ConnectionDB();
         String query = "INSERT INTO `hoadon`(`MAHOADON`,`MAKHACHHANG`,`MANHANVIEN`,`MAGIAMGIA`,`NGAYLAP`,`TONGTIEN`,`TONGCHIETKHAU`) VALUES ('"
-                + hd.getMaHoaDon()+ "','"
-                + hd.getMaKhachHang()+ "','"
-                + hd.getMaNhanVien()+ "','"
-                + hd.getMaGiamGia()+ "','"
-                + hd.getNgayLap()+ "','"
-                + hd.getTongTien()+ "','"
-                + hd.getTongTienGiamGia()+ "');";
+                + hd.getMaHoaDon() + "','"
+                + hd.getMaKhachHang() + "','"
+                + hd.getMaNhanVien() + "','"
+                + hd.getMaGiamGia() + "','"
+                + hd.getNgayLap() + "','"
+                + hd.getTongTien() + "','"
+                + hd.getTongTienGiamGia() + "');";
         System.out.println(query);
         Boolean ok = qlhdconnection.sqlUpdate(query);
         qlhdconnection.closeConnect();
         return ok;
     }
-    
+
     public Boolean delete(String mahd) {
         qlhdconnection = new ConnectionDB();
         if (!qlhdconnection.sqlUpdate("DELETE FROM `hoadon` WHERE `MAHOADON`='" + mahd + "';")) {
@@ -75,24 +74,24 @@ public class QuanLyHoaDonDAO {
         qlhdconnection.closeConnect();
         return true;
     }
-    
+
     public Boolean update(HoaDon hd) {
         qlhdconnection = new ConnectionDB();
         Boolean ok = qlhdconnection.sqlUpdate("UPDATE `hoadon` SET "
                 + "MAKH='" + hd.getMaKhachHang()
                 + "', MANHANVIEN='" + hd.getMaNhanVien()
                 + "', MAGIAMGIA='" + hd.getMaGiamGia()
-                + "', NGAYLAP='" + hd.getNgayLap() 
+                + "', NGAYLAP='" + hd.getNgayLap()
                 + "', TONGTIEN='" + hd.getTongTien()
                 + "', TONGCHIETKHAU='" + hd.getTongTienGiamGia()
-                + "' WHERE MAHOADON='" + hd.getMaHoaDon()+ "';");
+                + "' WHERE MAHOADON='" + hd.getMaHoaDon() + "';");
         qlhdconnection.closeConnect();
         return ok;
     }
-    
-    public Boolean updateTongTien(String mahd,int tongtien){
+
+    public Boolean updateTongTien(String mahd, int tongtien) {
         qlhdconnection = new ConnectionDB();
-        Boolean success = qlhdconnection.sqlUpdate("UPDATE `hoadon` SET TONGTIEN='" + tongtien + "' WHERE MAHOADON='" +mahd + "';");
+        Boolean success = qlhdconnection.sqlUpdate("UPDATE `hoadon` SET TONGTIEN='" + tongtien + "' WHERE MAHOADON='" + mahd + "';");
         qlhdconnection.closeConnect();
         return success;
     }
@@ -109,5 +108,4 @@ public class QuanLyHoaDonDAO {
         return update(hd);
     }
 
-   
 }

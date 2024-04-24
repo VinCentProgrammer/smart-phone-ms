@@ -13,12 +13,13 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class QuanLyKhachHangDAO {
+
     ConnectionDB qlkhConnection;
 
     public QuanLyKhachHangDAO() {
 
     }
-    
+
     public ArrayList<KhachHang> readDB() {
         qlkhConnection = new ConnectionDB();
         ArrayList<KhachHang> dskh = new ArrayList<>();
@@ -35,7 +36,7 @@ public class QuanLyKhachHangDAO {
                     String diachi = r.getString("DIACHI");
                     String sdt = r.getString("SDT");
                     int tongchitieu = r.getInt("TONGCHITIEU");
-                    dskh.add(new KhachHang(makh, hokh,tenkh, gioitinh, email, diachi, sdt, tongchitieu));
+                    dskh.add(new KhachHang(makh, hokh, tenkh, gioitinh, email, diachi, sdt, tongchitieu));
                 }
             }
 
@@ -46,7 +47,7 @@ public class QuanLyKhachHangDAO {
         }
         return dskh;
     }
-    
+
     public ArrayList<KhachHang> search(String columnName, String value) {
         qlkhConnection = new ConnectionDB();
         ArrayList<KhachHang> dskh = new ArrayList<>();
@@ -64,7 +65,7 @@ public class QuanLyKhachHangDAO {
                     String diachi = r.getString("DIACHI");
                     String sdt = r.getString("SDT");
                     int tongchitieu = r.getInt("TONGCHITIEU");
-                    dskh.add(new KhachHang(makh, hokh,tenkh, gioitinh, email,diachi, sdt, tongchitieu));
+                    dskh.add(new KhachHang(makh, hokh, tenkh, gioitinh, email, diachi, sdt, tongchitieu));
                 }
             }
 
@@ -76,18 +77,18 @@ public class QuanLyKhachHangDAO {
 
         return dskh;
     }
-    
+
     public Boolean add(KhachHang kh) {
         qlkhConnection = new ConnectionDB();
         Boolean ok = qlkhConnection.sqlUpdate("INSERT INTO `khachhang` (`MAKH`, `TENKH`, `HOKH`, `GIOITINH`, `DIACHI`, `SDT`, `EMAIL`, `TONGCHITIEU`) VALUES ('"
-                + kh.getMaKhachHang()+ "', '"
-                + kh.getTen()+ "', '"
-                + kh.getHo()+ "', '"
-                + kh.getGioiTinh()+ "','"
-                + kh.getDiachi()+ "','"
-                + kh.getSDT()+ "','"
-                + kh.getEmail()+ "','"
-                + kh.getTongChiTieu()+ "');");
+                + kh.getMaKhachHang() + "', '"
+                + kh.getTen() + "', '"
+                + kh.getHo() + "', '"
+                + kh.getGioiTinh() + "','"
+                + kh.getDiachi() + "','"
+                + kh.getSDT() + "','"
+                + kh.getEmail() + "','"
+                + kh.getTongChiTieu() + "');");
         qlkhConnection.closeConnect();
         return ok;
     }
@@ -98,27 +99,26 @@ public class QuanLyKhachHangDAO {
         qlkhConnection.closeConnect();
         return ok;
     }
-    
-    public Boolean update(String maKhachHang, String ho, String ten, String gioiTinh, String Email,String DiaChi, String SDT, int tongChiTieu) {
+
+    public Boolean update(String maKhachHang, String ho, String ten, String gioiTinh, String Email, String DiaChi, String SDT, int tongChiTieu) {
         qlkhConnection = new ConnectionDB();
-        Boolean ok = qlkhConnection.sqlUpdate("UPDATE khachhang SET HOKH='"+ho+"', TENKH='"+ten+"', GIOITINH='"+gioiTinh+"', EMAIL='"+Email+"', DIACHI='"+DiaChi+"', SDT='"+SDT+"',TONGCHITIEU="+tongChiTieu+" WHERE MAKH='"+maKhachHang+"'");
-       
+        Boolean ok = qlkhConnection.sqlUpdate("UPDATE khachhang SET HOKH='" + ho + "', TENKH='" + ten + "', GIOITINH='" + gioiTinh + "', EMAIL='" + Email + "', DIACHI='" + DiaChi + "', SDT='" + SDT + "',TONGCHITIEU=" + tongChiTieu + " WHERE MAKH='" + maKhachHang + "'");
+
         qlkhConnection.closeConnect();
         return ok;
     }
-    
+
     public Boolean updateTongChiTieu(String maKhachHang, int tongChiTieu) {
         qlkhConnection = new ConnectionDB();
         Boolean ok = qlkhConnection.sqlUpdate("Update khachhang Set "
-                + "TONGCHITIEU='" +  tongChiTieu
+                + "TONGCHITIEU='" + tongChiTieu
                 + "' where MAKH='" + maKhachHang + "'");
         qlkhConnection.closeConnect();
         return ok;
     }
-    
-    public void close(){
+
+    public void close() {
         qlkhConnection.closeConnect();
     }
 
-   
 }

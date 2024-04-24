@@ -3,15 +3,17 @@ package DTO;
 import java.time.LocalDate;
 
 public class HoaDon {
+
     private String maHoaDon, maKhachHang, maNhanVien, maGiamGia;
     private LocalDate ngayLap;
     private int tongTien;
     private int tongTienGiamGia;
-    
+
     public HoaDon() {
         ;
         ngayLap = LocalDate.now();
     }
+
     public HoaDon(String maHoaDon, String maKhachHang, String maNhanVien, String maGiamGia, LocalDate ngayLap, int tongTien, int tongTienGiamGia) {
         this.maHoaDon = maHoaDon;
         this.maKhachHang = maKhachHang;
@@ -21,6 +23,7 @@ public class HoaDon {
         this.tongTien = tongTien;
         this.tongTienGiamGia = tongTienGiamGia;
     }
+
     public HoaDon(HoaDon hd) {
         this.maHoaDon = hd.getMaHoaDon();
         this.maKhachHang = hd.getMaKhachHang();
@@ -89,14 +92,14 @@ public class HoaDon {
 
     @Override
     public String toString() {
-        return "HoaDon{" +
-                "maHoaDon='" + maHoaDon + '\'' +
-                ", maKhachHang='" + maKhachHang + '\'' +
-                ", maNhanVien='" + maNhanVien + '\'' +
-                ", maGiamGia='" + maGiamGia + '\'' +
-                ", ngayLap=" + ngayLap +
-                ", tongTien=" + tongTien +
-                ", tongTienGiamGia=" + tongTienGiamGia +
-                '}';
+        return "HoaDon{"
+                + "maHoaDon='" + maHoaDon + '\''
+                + ", maKhachHang='" + maKhachHang + '\''
+                + ", maNhanVien='" + maNhanVien + '\''
+                + ", maGiamGia='" + maGiamGia + '\''
+                + ", ngayLap=" + ngayLap
+                + ", tongTien=" + tongTien
+                + ", tongTienGiamGia=" + tongTienGiamGia
+                + '}';
     }
 }

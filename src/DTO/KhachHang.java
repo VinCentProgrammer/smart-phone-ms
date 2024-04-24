@@ -1,13 +1,15 @@
 package DTO;
 
 public class KhachHang {
+
     private String maKhachHang, ho, ten, gioiTinh, Email, SDT, diachi;
     private int tongChiTieu = 0;
 
     public KhachHang() {
         ;
     }
-    public KhachHang(String maKhachHang, String ho, String ten, String gioiTinh, String Email,String diachi, String SDT, int tongChiTieu) {
+
+    public KhachHang(String maKhachHang, String ho, String ten, String gioiTinh, String Email, String diachi, String SDT, int tongChiTieu) {
         this.maKhachHang = maKhachHang;
         this.ho = ho;
         this.ten = ten;
@@ -17,6 +19,7 @@ public class KhachHang {
         this.tongChiTieu = tongChiTieu;
         this.diachi = diachi;
     }
+
     public KhachHang(KhachHang kh) {
         this.maKhachHang = kh.getMaKhachHang();
         this.ho = kh.getHo();
@@ -43,11 +46,11 @@ public class KhachHang {
     public void setMaKhachHang(String maKhachHang) {
         this.maKhachHang = maKhachHang;
     }
-    
+
     public String getHo() {
         return ho;
     }
-    
+
     public void setHo(String ho) {
         this.ho = ho;
     }
@@ -94,15 +97,15 @@ public class KhachHang {
 
     @Override
     public String toString() {
-        return "KhachHang{" +
-                "maKhachHang='" + maKhachHang + '\'' +
-                ", ho='" + ho + '\'' +
-                ", ten='" + ten + '\'' +
-                ", gioiTinh='" + gioiTinh + '\'' +
-                ", Email='" + Email + '\'' +
-                ", SDT='" + SDT + '\'' +
-                ", diachi='" + diachi + '\'' +
-                ", tongChiTieu=" + tongChiTieu +
-                '}';
+        return "KhachHang{"
+                + "maKhachHang='" + maKhachHang + '\''
+                + ", ho='" + ho + '\''
+                + ", ten='" + ten + '\''
+                + ", gioiTinh='" + gioiTinh + '\''
+                + ", Email='" + Email + '\''
+                + ", SDT='" + SDT + '\''
+                + ", diachi='" + diachi + '\''
+                + ", tongChiTieu=" + tongChiTieu
+                + '}';
     }
 }

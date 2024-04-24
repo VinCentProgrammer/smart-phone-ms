@@ -13,7 +13,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-
 public class QuanLyChuongTrinhGiamGiaDAO {
 
     ConnectionDB qlggConnection;
@@ -31,7 +30,7 @@ public class QuanLyChuongTrinhGiamGiaDAO {
             if (r != null) {
                 while (r.next()) {
                     String magg = r.getString("MAGIAMGIA");
-                    String tenct = r.getString("TENCHUONGTRINH");                    
+                    String tenct = r.getString("TENCHUONGTRINH");
                     LocalDate ngaybd = r.getDate("NGAYBATDAU").toLocalDate();
                     LocalDate ngaykt = r.getDate("NGAYKETTHUC").toLocalDate();
                     dssp.add(new ChuongTrinhGiamGia(magg, tenct, ngaybd, ngaykt));
@@ -45,7 +44,7 @@ public class QuanLyChuongTrinhGiamGiaDAO {
         }
         return dssp;
     }
-    
+
     public ArrayList<ChuongTrinhGiamGia> search(String columnName, String value) {
         qlggConnection = new ConnectionDB();
         ArrayList<ChuongTrinhGiamGia> dssp = new ArrayList<>();
@@ -56,7 +55,7 @@ public class QuanLyChuongTrinhGiamGiaDAO {
             if (r != null) {
                 while (r.next()) {
                     String magg = r.getString("MAGIAMGIA");
-                    String tenct = r.getString("TENCHUONGTRINH");                    
+                    String tenct = r.getString("TENCHUONGTRINH");
                     LocalDate ngaybd = r.getDate("NGAYBATDAU").toLocalDate();
                     LocalDate ngaykt = r.getDate("NGAYKETTHUC").toLocalDate();
                     dssp.add(new ChuongTrinhGiamGia(magg, tenct, ngaybd, ngaykt));
@@ -71,26 +70,26 @@ public class QuanLyChuongTrinhGiamGiaDAO {
 
         return dssp;
     }
-    
+
     public Boolean add(ChuongTrinhGiamGia gg) {
         qlggConnection = new ConnectionDB();
         Boolean ok = qlggConnection.sqlUpdate("INSERT INTO `chuongtrinhgiamgia` (`MAGIAMGIA`, `TENCHUONGTRINH`, `NGAYBATDAU`, `NGAYKETTHUC`) VALUES ('"
-                + gg.getMaGiamGia()+ "', '"
-                + gg.getTenChuongTrinh()+ "', '"
-                + gg.getNgayBatDau()+ "', '"
-                + gg.getNgayKetThuc()+ "');");
+                + gg.getMaGiamGia() + "', '"
+                + gg.getTenChuongTrinh() + "', '"
+                + gg.getNgayBatDau() + "', '"
+                + gg.getNgayKetThuc() + "');");
         qlggConnection.closeConnect();
         return ok;
     }
-    
+
     public Boolean delete(String magg) {
         qlggConnection = new ConnectionDB();
         Boolean ok = qlggConnection.sqlUpdate("DELETE FROM `chuongtrinhgiamgia` WHERE `chuongtrinhgiamgia`.`MAGIAMGIA` = '" + magg + "'");
         qlggConnection.closeConnect();
         return ok;
     }
-    
-     public Boolean update(String maGiamGia, String tenChuongTrinh, LocalDate ngayBatDau, LocalDate ngayKetThuc) {
+
+    public Boolean update(String maGiamGia, String tenChuongTrinh, LocalDate ngayBatDau, LocalDate ngayKetThuc) {
         qlggConnection = new ConnectionDB();
         Boolean ok = qlggConnection.sqlUpdate("UPDATE `chuongtrinhgiamgia` SET "
                 + "TENCHUONGTRINH='" + tenChuongTrinh
@@ -105,6 +104,4 @@ public class QuanLyChuongTrinhGiamGiaDAO {
         qlggConnection.closeConnect();
     }
 
-    
 }
-

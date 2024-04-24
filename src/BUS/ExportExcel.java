@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ExportExcel extends JFrame {
+
     FileDialog fd = new FileDialog(new JFrame(), "Xuất File Excel", FileDialog.SAVE);
     JFileChooser chooser = new JFileChooser();
 
@@ -21,15 +22,14 @@ public class ExportExcel extends JFrame {
         fd.setTitle("untitled.xls");
         fd.setVisible(true);
         String path = fd.getDirectory() + fd.getFile();
-        if(path.equals("nullnull")) {
+        if (path.equals("nullnull")) {
             return null;
         }
         return path;
     }
+
     public void Export(JTable table) {
         int i = chooser.showSaveDialog(chooser);
-
-
 
         FileOutputStream outFile = null;
         try {
@@ -48,7 +48,7 @@ public class ExportExcel extends JFrame {
                 rownum++;
                 row = sheet.createRow(rownum);
                 for (int k = 0; k < table.getColumnCount(); k++) {
-                    row.createCell(k,CellType.STRING).setCellValue(model.getValueAt(j,k) + "\t");
+                    row.createCell(k, CellType.STRING).setCellValue(model.getValueAt(j, k) + "\t");
                 }
             }
             for (int h = 0; h < rownum; h++) {
@@ -61,10 +61,8 @@ public class ExportExcel extends JFrame {
                 outFile = new FileOutputStream(file + ".xls");
                 workbook.write(outFile);
 
-                JOptionPane.showMessageDialog(null, "Lưu file thành công" );
+                JOptionPane.showMessageDialog(null, "Lưu file thành công");
             }
-
-
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ExportExcel.class.getName()).log(Level.SEVERE, null, ex);
@@ -80,8 +78,5 @@ public class ExportExcel extends JFrame {
             }
         }
     }
-
-
-
 
 }

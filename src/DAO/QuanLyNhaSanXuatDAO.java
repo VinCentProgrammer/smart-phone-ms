@@ -13,8 +13,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class QuanLyNhaSanXuatDAO {
+
     ConnectionDB qlnsxConnection;
-    
+
     public QuanLyNhaSanXuatDAO() {
 
     }
@@ -70,7 +71,7 @@ public class QuanLyNhaSanXuatDAO {
     public Boolean add(NhaSanXuat nsx) {
         qlnsxConnection = new ConnectionDB();
         Boolean ok = qlnsxConnection.sqlUpdate("INSERT INTO `nhasanxuat` (`MANSX`, `TENNSX`) VALUES ('"
-                + nsx.getMaNSX()+ "', '" + nsx.getTenNSX()+ "');");
+                + nsx.getMaNSX() + "', '" + nsx.getTenNSX() + "');");
         qlnsxConnection.closeConnect();
         return ok;
     }
@@ -93,5 +94,4 @@ public class QuanLyNhaSanXuatDAO {
         qlnsxConnection.closeConnect();
     }
 
-    
 }

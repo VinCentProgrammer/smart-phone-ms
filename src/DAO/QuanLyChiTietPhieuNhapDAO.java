@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class QuanLyChiTietPhieuNhapDAO {
+
     ConnectionDB qlctpnConnection;
 
     public ArrayList<ChiTietPhieuNhap> readDB() {
@@ -42,6 +43,7 @@ public class QuanLyChiTietPhieuNhapDAO {
         return dsctpn;
 
     }
+
     public ArrayList<ChiTietPhieuNhap> search(String columName, String value) {
         ArrayList<ChiTietPhieuNhap> dsctpn = new ArrayList<>();
         qlctpnConnection = new ConnectionDB();
@@ -69,12 +71,13 @@ public class QuanLyChiTietPhieuNhapDAO {
         return dsctpn;
 
     }
+
     public boolean add(ChiTietPhieuNhap ctpn) {
         qlctpnConnection = new ConnectionDB();
         Boolean ok = qlctpnConnection.sqlUpdate("INSERT INTO `chitietphieunhap`(`MAPHIEUNHAP`,`MASANPHAM`,`SOLUONG`,`DONGIA`) VALUE('"
-                + ctpn.getMaPhieuNhap()+ "', '" 
-                + ctpn.getMaSanPham()+ "','" 
-                + ctpn.getSoLuong() + "','" 
+                + ctpn.getMaPhieuNhap() + "', '"
+                + ctpn.getMaSanPham() + "','"
+                + ctpn.getSoLuong() + "','"
                 + ctpn.getDonGia() + "')");
         qlctpnConnection.closeConnect();
         return ok;
@@ -87,6 +90,7 @@ public class QuanLyChiTietPhieuNhapDAO {
         qlctpnConnection.closeConnect();
         return ok;
     }
+
     public Boolean delete(String mapn, String masp) {
         qlctpnConnection = new ConnectionDB();
         Boolean ok = qlctpnConnection.sqlUpdate("DELETE FROM `chitietphieunhap` WHERE `MAPHIEUNHAP`='" + mapn + "' AND MASANPHAM='" + masp + "';");

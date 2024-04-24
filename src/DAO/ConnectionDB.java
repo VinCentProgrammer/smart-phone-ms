@@ -17,7 +17,6 @@ import java.sql.Statement;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 public class ConnectionDB {
 
     /*String host = "localhost";
@@ -27,7 +26,6 @@ public class ConnectionDB {
     String database = "chdtdatabase";
     Connection conn = null;
     String url = "jdbc:mysql://" + this.host + ":" + this.port + "/" + this.database; */
-
     private String host;
     private String port;
     private String user;
@@ -47,7 +45,8 @@ public class ConnectionDB {
         this.databaseName = "chdtdatabase";
         setConnect();
     }
-    public void checkDriver(){
+
+    public void checkDriver() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Tìm thấy Driver");
@@ -56,11 +55,12 @@ public class ConnectionDB {
             System.out.println("Không tìm thấy Driver");
         }
     }
+
     public void setConnect() {
         try {
             String url = "jdbc:mysql://" + host + ":" + port + "/" + databaseName;
             System.out.println(url);
-            conn = DriverManager.getConnection(url,user,passwd);
+            conn = DriverManager.getConnection(url, user, passwd);
 
             stm = conn.createStatement();
 
@@ -73,23 +73,25 @@ public class ConnectionDB {
 
     public void closeConnect() {
         try {
-            if (conn != null)
+            if (conn != null) {
                 conn.close();
-            if (stm != null)
+            }
+            if (stm != null) {
                 stm.close();
+            }
             System.out.println("Đóng kết nối thành công");
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Không thể đóng kết nối");
         }
     }
 
-    public boolean isConnected(){
+    public boolean isConnected() {
         return conn != null || stm != null;
     }
 
     public boolean sqlUpdate(String qry) {
-        if(isConnected()) {
+        if (isConnected()) {
             try {
                 stm.executeUpdate(qry);
 
@@ -105,7 +107,7 @@ public class ConnectionDB {
     }
 
     public ResultSet sqlQuery(String qry) {
-        if(isConnected()) {
+        if (isConnected()) {
             try {
                 rs = stm.executeQuery(qry);
 

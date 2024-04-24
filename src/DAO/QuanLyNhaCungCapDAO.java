@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-
 public class QuanLyNhaCungCapDAO {
 
     ConnectionDB qlnccConnection;
@@ -88,10 +87,10 @@ public class QuanLyNhaCungCapDAO {
         qlnccConnection = new ConnectionDB();
         Boolean ok = qlnccConnection.sqlUpdate("UPDATE `nhacungcap` SET "
                 + "MANCC='" + maNCC
-                + "',TENNCC='" + tenNCC 
-                + "',EMAIL='" + Email 
-                + "',DIACHI='" + diaChi 
-                + "',SDT='" + SDT 
+                + "',TENNCC='" + tenNCC
+                + "',EMAIL='" + Email
+                + "',DIACHI='" + diaChi
+                + "',SDT='" + SDT
                 + "' where MANCC='" + maNCC + "'");
         qlnccConnection.closeConnect();
         return ok;

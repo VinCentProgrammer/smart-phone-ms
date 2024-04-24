@@ -14,9 +14,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class QuanLyPhieuNhapDAO {
-    
+
     ConnectionDB connection;
-    
+
     public QuanLyPhieuNhapDAO() {
     }
 
@@ -33,7 +33,7 @@ public class QuanLyPhieuNhapDAO {
 
                     pn.setMaPhieuNhap(rs.getString("MAPHIEUNHAP"));
                     pn.setMaNhanVien(rs.getString("MANHANVIEN"));
-                    pn.setMaNCC(rs.getString("MANCC"));                   
+                    pn.setMaNCC(rs.getString("MANCC"));
                     pn.setNgayNhap(rs.getDate("NGAYNHAP").toLocalDate());
                     pn.setTongTien(rs.getInt("TONGTIEN"));
                     dspn.add(pn);
@@ -50,10 +50,10 @@ public class QuanLyPhieuNhapDAO {
     public Boolean add(PhieuNhap pn) {
         connection = new ConnectionDB();
         Boolean ok = connection.sqlUpdate("INSERT INTO `phieunhap`(`MAPHIEUNHAP`,`MANHANVIEN`,`MANCC`,`NGAYNHAP`,TONGTIEN) VALUES ('"
-                + pn.getMaPhieuNhap()+ "','"
-                + pn.getMaNhanVien()+ "','"
-                + pn.getMaNCC()+ "','"
-                + pn.getNgayNhap() + "', '"+ pn.getTongTien()+"')");
+                + pn.getMaPhieuNhap() + "','"
+                + pn.getMaNhanVien() + "','"
+                + pn.getMaNCC() + "','"
+                + pn.getNgayNhap() + "', '" + pn.getTongTien() + "')");
         connection.closeConnect();
         return ok;
     }
@@ -74,14 +74,15 @@ public class QuanLyPhieuNhapDAO {
         Boolean ok = connection.sqlUpdate("UPDATE `phieunhap` SET "
                 + "MANHANVIEN='" + pn.getMaNhanVien()
                 + "', MANCC='" + pn.getMaNCC()
-                 + "', NGAYNHAP='" + pn.getNgayNhap()
-                + "' WHERE MAPHIEUNHAP='" + pn.getMaPhieuNhap()+ "';");
+                + "', NGAYNHAP='" + pn.getNgayNhap()
+                + "' WHERE MAPHIEUNHAP='" + pn.getMaPhieuNhap() + "';");
         connection.closeConnect();
         return ok;
     }
+
     public Boolean updateTongTien(String mapn, int tongTien) {
         connection = new ConnectionDB();
-        String query = "UPDATE phieunhap SET TONGTIEN = " + tongTien + " WHERE MAPHIEUNHAP='" + mapn +"'";
+        String query = "UPDATE phieunhap SET TONGTIEN = " + tongTien + " WHERE MAPHIEUNHAP='" + mapn + "'";
         Boolean check = connection.sqlUpdate(query);
         connection.closeConnect();
         return check;
@@ -92,9 +93,8 @@ public class QuanLyPhieuNhapDAO {
         pn.setMaPhieuNhap(maPhieuNhap);
         pn.setMaNhanVien(maNhanVien);
         pn.setMaNCC(maNCC);
-        pn.setNgayNhap(ngayNhap);       
+        pn.setNgayNhap(ngayNhap);
         return update(pn);
     }
 
-    
 }

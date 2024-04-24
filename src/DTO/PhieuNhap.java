@@ -3,7 +3,7 @@ package DTO;
 import java.time.LocalDate;
 
 public class PhieuNhap {
-    
+
     private String maPhieuNhap, maNhanVien, maNCC;
     private LocalDate ngayNhap;
     private int tongTien;
@@ -12,6 +12,7 @@ public class PhieuNhap {
         ;
         this.ngayNhap = LocalDate.now();
     }
+
     public PhieuNhap(String maPhieuNhap, String maNhanVien, String maNCC, LocalDate ngayNhap, int tongTien) {
         this.maPhieuNhap = maPhieuNhap;
         this.maNhanVien = maNhanVien;
@@ -19,6 +20,7 @@ public class PhieuNhap {
         this.ngayNhap = ngayNhap;
         this.tongTien = tongTien;
     }
+
     public PhieuNhap(PhieuNhap pn) {
         this.maPhieuNhap = pn.getMaPhieuNhap();
         this.maNhanVien = pn.getMaNhanVien();
@@ -66,6 +68,5 @@ public class PhieuNhap {
     public void setNgayNhap(LocalDate ngayNhap) {
         this.ngayNhap = ngayNhap;
     }
-    
-    
+
 }

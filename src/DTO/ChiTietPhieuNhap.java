@@ -1,6 +1,7 @@
 package DTO;
 
 public class ChiTietPhieuNhap {
+
     private String maPhieuNhap, maSanPham;
     private int soLuong;
     private int donGia;
@@ -8,6 +9,7 @@ public class ChiTietPhieuNhap {
     public ChiTietPhieuNhap() {
         ;
     }
+
     public ChiTietPhieuNhap(String maPhieuNhap, String maSanPham, int soLuong, int donGia) {
         this.maPhieuNhap = maPhieuNhap;
         this.maSanPham = maSanPham;
@@ -47,6 +49,4 @@ public class ChiTietPhieuNhap {
         this.donGia = donGia;
     }
 
-    
 }
-

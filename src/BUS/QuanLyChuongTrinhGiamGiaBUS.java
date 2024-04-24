@@ -16,7 +16,6 @@ public class QuanLyChuongTrinhGiamGiaBUS {
     private static ArrayList<ChuongTrinhGiamGia> dschuongtrinhgg = new ArrayList();
     private QuanLyChuongTrinhGiamGiaDAO qlchuongtrinhggDAO = new QuanLyChuongTrinhGiamGiaDAO();
 
-
     public QuanLyChuongTrinhGiamGiaBUS() {
         if (dschuongtrinhgg.isEmpty()) {
             dschuongtrinhgg = qlchuongtrinhggDAO.readDB();
@@ -70,32 +69,32 @@ public class QuanLyChuongTrinhGiamGiaBUS {
     public Boolean updateCTGG(String maGiamGia, String tenChuongTrinh, LocalDate ngayBatDau, LocalDate ngayKetThuc) {
         Boolean check = qlchuongtrinhggDAO.update(maGiamGia, tenChuongTrinh, ngayBatDau, ngayKetThuc);
         if (check) {
-            dschuongtrinhgg.forEach((ChuongTrinhGiamGia) ->{ 
-            if (ChuongTrinhGiamGia.getMaGiamGia().equals(maGiamGia)) {
-                ChuongTrinhGiamGia.setTenChuongTrinh(tenChuongTrinh);
-                ChuongTrinhGiamGia.setNgayBatDau(ngayBatDau);
-                ChuongTrinhGiamGia.setNgayKetThuc(ngayKetThuc);
+            dschuongtrinhgg.forEach((ChuongTrinhGiamGia) -> {
+                if (ChuongTrinhGiamGia.getMaGiamGia().equals(maGiamGia)) {
+                    ChuongTrinhGiamGia.setTenChuongTrinh(tenChuongTrinh);
+                    ChuongTrinhGiamGia.setNgayBatDau(ngayBatDau);
+                    ChuongTrinhGiamGia.setNgayKetThuc(ngayKetThuc);
                 }
             });
         }
         return check;
     }
-    public ArrayList<ChuongTrinhGiamGia> getDSCTGG(){
+
+    public ArrayList<ChuongTrinhGiamGia> getDSCTGG() {
         return dschuongtrinhgg;
     }
 
     public String getLatestID() {
-        int max=0;
-        for(ChuongTrinhGiamGia ct : dschuongtrinhgg) {
+        int max = 0;
+        for (ChuongTrinhGiamGia ct : dschuongtrinhgg) {
             String latestID = ct.getMaGiamGia();
             int n = Integer.parseInt(latestID.substring(2));
-            if(max < n) {
+            if (max < n) {
                 max = n;
             }
         }
 
-
-        return "GG"+String.valueOf(++max);
+        return "GG" + String.valueOf(++max);
     }
 
 }

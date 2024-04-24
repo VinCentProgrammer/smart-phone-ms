@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import DTO.NhaSanXuat;
 import DTO.SanPham;
 
-
 public class QuanLyNhaSanXuatBUS {
 
     private static ArrayList<NhaSanXuat> dsnsx = new ArrayList<>();
@@ -22,18 +21,22 @@ public class QuanLyNhaSanXuatBUS {
             dsnsx = qlnsxDAO.readDB();
         }
     }
-    public void readDB(){
-        if(dsnsx.isEmpty()){
+
+    public void readDB() {
+        if (dsnsx.isEmpty()) {
             dsnsx = qlnsxDAO.readDB();
         }
     }
+
     //Set name of column on table
     public String[] getHeaders() {
         return new String[]{"Mã nhà sản xuất", "Tên nhà sản xuất"};
     }
-    public ArrayList<NhaSanXuat> getDSNhaSanXuat(){
+
+    public ArrayList<NhaSanXuat> getDSNhaSanXuat() {
         return dsnsx;
     }
+
     public NhaSanXuat getNhaSanXuat(String mansx) {
         for (NhaSanXuat nsx : dsnsx) {
             if (nsx.getMaNSX().equals(mansx)) {
@@ -79,29 +82,28 @@ public class QuanLyNhaSanXuatBUS {
         }
         return check;
     }
+
     public String getLatestID() {
-        int max=0;
-        for(NhaSanXuat nsx : dsnsx) {
-            String  latestID = nsx.getMaNSX();
+        int max = 0;
+        for (NhaSanXuat nsx : dsnsx) {
+            String latestID = nsx.getMaNSX();
             int n = Integer.parseInt(latestID.substring(3));
-            if(max < n) {
+            if (max < n) {
                 max = n;
             }
         }
 
-
-        return "NSX"+String.valueOf(++max);
+        return "NSX" + String.valueOf(++max);
     }
+
     public ArrayList<NhaSanXuat> getIDbyName(String id) {
         ArrayList<NhaSanXuat> result = new ArrayList<>();
-        for(NhaSanXuat nsx : dsnsx) {
-            if(nsx.getTenNSX().contains(id)) {
+        for (NhaSanXuat nsx : dsnsx) {
+            if (nsx.getTenNSX().contains(id)) {
                 result.add(nsx);
             }
         }
         return result;
     }
-
-
 
 }

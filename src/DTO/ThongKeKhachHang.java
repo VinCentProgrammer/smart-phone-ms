@@ -3,6 +3,7 @@ package DTO;
 import java.util.Date;
 
 public class ThongKeKhachHang {
+
     private String hotenKH;
     private int soLuongMua;
     private Date ngayMua;

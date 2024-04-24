@@ -12,33 +12,36 @@ import java.util.ArrayList;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 public class QuanLyNhaCungCapBUS {
+
     private static ArrayList<NhaCungCap> dsncc = new ArrayList<>();
     private QuanLyNhaCungCapDAO qlnccDAO = new QuanLyNhaCungCapDAO();
 
     public QuanLyNhaCungCapBUS() {
-        if(dsncc.isEmpty()) {
+        if (dsncc.isEmpty()) {
             dsncc = qlnccDAO.readDB();
         }
     }
+
     public String[] getHeaders() {
         return new String[]{"Mã NCC", "Tên NCC", "Email", "Địa chỉ", "SĐT"};
     }
 
     public void readDB() {
-        if(dsncc.isEmpty()) {
+        if (dsncc.isEmpty()) {
             dsncc = qlnccDAO.readDB();
         }
     }
 
     public NhaCungCap getNhaCungCap(String mancc) {
-        for(NhaCungCap ncc : dsncc) {
-            if(ncc.getMaNCC().equals(mancc))
+        for (NhaCungCap ncc : dsncc) {
+            if (ncc.getMaNCC().equals(mancc)) {
                 return ncc;
+            }
         }
         return null;
     }
+
     public ArrayList<NhaCungCap> timkiem(String mancc, String tenncc) {
         ArrayList<NhaCungCap> result = new ArrayList<>();
 
@@ -48,7 +51,7 @@ public class QuanLyNhaCungCapBUS {
     public Boolean themNhaCungCap(NhaCungCap ncc) {
         Boolean check = qlnccDAO.add(ncc);
 
-        if(check) {
+        if (check) {
             dsncc.add(ncc);
         }
         return check;
@@ -62,7 +65,7 @@ public class QuanLyNhaCungCapBUS {
     public Boolean xoaNhaCungCap(String mancc) {
         Boolean check = qlnccDAO.delete(mancc);
 
-        if(check) {
+        if (check) {
             for (int i = (dsncc.size() - 1); i >= 0; i--) {
                 if (dsncc.get(i).getMaNCC().equals(mancc)) {
                     dsncc.remove(i);
@@ -75,9 +78,9 @@ public class QuanLyNhaCungCapBUS {
     public Boolean updateNhaCungCap(String maNcc, String tenNcc, String email, String diaChi, String SDT) {
         Boolean check = qlnccDAO.update(maNcc, tenNcc, email, diaChi, SDT);
 
-        if(check) {
+        if (check) {
             dsncc.forEach((ncc) -> {
-                if(ncc.getMaNCC().equals(maNcc)) {
+                if (ncc.getMaNCC().equals(maNcc)) {
                     ncc.setTenNCC(tenNcc);
                     ncc.setEmail(email);
                     ncc.setDiaChi(diaChi);
@@ -86,28 +89,30 @@ public class QuanLyNhaCungCapBUS {
             });
         }
 
-        return  check;
+        return check;
 
     }
+
     public ArrayList<NhaCungCap> getDsncc() {
         return dsncc;
     }
+
     public String setMaNCC() {
-        int max=0;
-        for(NhaCungCap ncc : dsncc) {
-            String  latestID = ncc.getMaNCC();
+        int max = 0;
+        for (NhaCungCap ncc : dsncc) {
+            String latestID = ncc.getMaNCC();
             int n = Integer.parseInt(latestID.substring(3));
-            if(max < n) {
+            if (max < n) {
                 max = n;
             }
         }
 
-
-         return "NCC"+String.valueOf(++max);
+        return "NCC" + String.valueOf(++max);
     }
+
     public ArrayList<NhaCungCap> searchByName(String tenNCC) {
         ArrayList<NhaCungCap> result = new ArrayList<>();
-        for(NhaCungCap ncc : dsncc) {
+        for (NhaCungCap ncc : dsncc) {
             if (ncc.getTenNCC().toLowerCase().contains(tenNCC.toLowerCase())) {
                 result.add(ncc);
             }
@@ -117,22 +122,22 @@ public class QuanLyNhaCungCapBUS {
 
     public ArrayList<NhaCungCap> searchByID(String maNCC) {
         ArrayList<NhaCungCap> result = new ArrayList<>();
-        for(NhaCungCap ncc : dsncc) {
+        for (NhaCungCap ncc : dsncc) {
             if (ncc.getMaNCC().toLowerCase().contains(maNCC.toLowerCase())) {
                 result.add(ncc);
             }
         }
         return result;
     }
+
     public ArrayList<NhaCungCap> search(String tenNCC, String maNCC) {
         ArrayList<NhaCungCap> result = new ArrayList<>();
-        for(NhaCungCap ncc : dsncc) {
-            if(ncc.getMaNCC().toLowerCase().contains(maNCC.toLowerCase()) && ncc.getTenNCC().toLowerCase().contains(tenNCC.toLowerCase())) {
+        for (NhaCungCap ncc : dsncc) {
+            if (ncc.getMaNCC().toLowerCase().contains(maNCC.toLowerCase()) && ncc.getTenNCC().toLowerCase().contains(tenNCC.toLowerCase())) {
                 result.add(ncc);
             }
         }
         return result;
     }
-
 
 }

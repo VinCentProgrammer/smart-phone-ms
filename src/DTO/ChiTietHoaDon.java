@@ -1,12 +1,14 @@
 package DTO;
 
 public class ChiTietHoaDon {
+
     private String maHoaDon, maSanPham;
     private int soLuong, thanhTien, chietKhau;
 
     public ChiTietHoaDon() {
         ;
     }
+
     public ChiTietHoaDon(String maHoaDon, String maSanPham, int soLuong, int thanhTien, int chietKhau) {
         this.maHoaDon = maHoaDon;
         this.maSanPham = maSanPham;
@@ -14,6 +16,7 @@ public class ChiTietHoaDon {
         this.thanhTien = thanhTien;
         this.chietKhau = chietKhau;
     }
+
     public ChiTietHoaDon(ChiTietHoaDon cthd) {
         this.maHoaDon = cthd.getMaHoaDon();
         this.maSanPham = cthd.getMaSanPham();
@@ -62,7 +65,4 @@ public class ChiTietHoaDon {
         this.chietKhau = chietKhau;
     }
 
-    
-    
 }
-
