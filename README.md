@@ -13,5 +13,5 @@ Bài tập lớn môn Công nghệ Java sử dụng Java Swing + MySQL
 3. Sử dụng netbeans để chạy source code.
 
 ### Tài khoản ADMIN
-- Email: admin123@gmail.com
+- Email: admin@gmail.com
 - Password: 1234567890
