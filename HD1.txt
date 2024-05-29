@@ -2,7 +2,7 @@
 
 Mã hóa đơn: HD1
 
-Tên khách hàng: Dũng Đặng Khải
+Tên khách hàng: Đặng Khải Dũng
 
 Tên nhân viên: Nguyễn Thị Hồng Hạnh
 
@@ -23,7 +23,3 @@ Tổng tiền: 25990000
 Nhận tiền: 30000000
 
 Tiền thừa: 4010000
-
-Nhận tiền: 300000000
-
-Tiền thừa: 274010000

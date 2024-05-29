@@ -89,22 +89,14 @@ CREATE TABLE IF NOT EXISTS `chitietphieunhap` (
   CONSTRAINT `FK_MAPN` FOREIGN KEY (`MAPHIEUNHAP`) REFERENCES `phieunhap` (`MAPHIEUNHAP`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.chitietphieunhap: ~14 rows (approximately)
+-- Dumping data for table chdtdatabase.chitietphieunhap: ~6 rows (approximately)
 INSERT INTO `chitietphieunhap` (`MAPHIEUNHAP`, `MASANPHAM`, `SOLUONG`, `DONGIA`) VALUES
-	('PN1', 'SP1', 5, 1250000),
-	('PN1', 'SP10', 10, 18000000),
-	('PN1', 'SP15', 3, 3490000),
-	('PN2', 'SP11', 10, 25000000),
-	('PN2', 'SP2', 6, 790000),
 	('PN3', 'SP5', 2, 588000),
 	('PN3', 'SP7', 5, 8000000),
 	('PN4', 'SP26', 10, 990000),
 	('PN4', 'SP27', 5, 5490000),
 	('PN5', 'SP21', 6, 4690000),
-	('PN6', 'SP13', 8, 26990000),
-	('PN6', 'SP14', 4, 10990000),
-	('PN8', 'SP2', 2, 10000),
-	('PN8', 'SP3', 6, 10000);
+	('PN9', 'SP1', 10, 2000000);
 
 -- Dumping structure for table chdtdatabase.chuongtrinhgiamgia
 CREATE TABLE IF NOT EXISTS `chuongtrinhgiamgia` (
@@ -168,9 +160,9 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
   PRIMARY KEY (`MAKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.khachhang: ~9 rows (approximately)
+-- Dumping data for table chdtdatabase.khachhang: ~10 rows (approximately)
 INSERT INTO `khachhang` (`MAKH`, `TENKH`, `HOKH`, `GIOITINH`, `DIACHI`, `SDT`, `EMAIL`, `TONGCHITIEU`) VALUES
-	('KH1', 'Đặng Khải', 'Dũng', 'Nam', 'TP.HCM', '0123456789', 'dung@gmail.com', 100000000),
+	('KH1', 'Dũng', 'Đặng Khải', 'Nữ', 'Ha Noi', '1234567890', 'dung@gmail.com', 100000000),
 	('KH2', 'Tiên', 'Đặng Thị Kiều', 'Nữ', 'Phú Yên\r\n', '0987654321', 'tien@gmail.com', 90000000),
 	('KH3', 'Trâm', 'Ngô Thị Bảo ', 'Nữ', 'Long An', '0246813579', 'tram@gmail.com', 80000000),
 	('KH4', 'Hùng', 'Nguyễn Minh', 'Nam', 'Lâm Đồng', '0135792468', 'hung@gmail.com', 70000000),
@@ -231,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `nhanvien` (
   PRIMARY KEY (`MANHANVIEN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.nhanvien: ~14 rows (approximately)
+-- Dumping data for table chdtdatabase.nhanvien: ~12 rows (approximately)
 INSERT INTO `nhanvien` (`MANHANVIEN`, `HONV`, `TENNV`, `GIOITINH`, `EMAIL`, `DIACHI`, `CHUCVU`, `LUONG`, `SDT`, `HINHANH`, `CHUTHICH`) VALUES
 	('NV1', 'Phan Trí', 'Dũng', 'Nam', 'tridung@gmail.com', 'TP.HCM', 'Admin ', 10000000, '0523658325', '', ''),
 	('NV10', 'Hà Văn Dũng', 'Dũng', 'Nam', 'brave2112love@gmail.com', 'Gia Lai', 'Admin', 15000000, '0327250461', '', ''),
@@ -280,15 +272,12 @@ CREATE TABLE IF NOT EXISTS `phieunhap` (
   CONSTRAINT `FK_MANCC` FOREIGN KEY (`MANCC`) REFERENCES `nhacungcap` (`MANCC`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.phieunhap: ~7 rows (approximately)
+-- Dumping data for table chdtdatabase.phieunhap: ~4 rows (approximately)
 INSERT INTO `phieunhap` (`MAPHIEUNHAP`, `MANHANVIEN`, `MANCC`, `NGAYNHAP`, `TONGTIEN`) VALUES
-	('PN1', 'NV11', 'NCC1', '2021-05-01', 0),
-	('PN2', 'NV11', 'NCC3', '2021-04-04', 0),
 	('PN3', 'NV11', 'NCC5', '2021-04-15', 0),
 	('PN4', 'NV11', 'NCC7', '2021-04-22', 0),
 	('PN5', 'NV11', 'NCC2', '2021-05-06', 0),
-	('PN6', 'NV11', 'NCC4', '2021-05-24', 0),
-	('PN8', 'NV11', 'NCC8', '2021-05-01', 80000);
+	('PN9', 'NV1', 'NCC1', '2024-12-01', 20000000);
 
 -- Dumping structure for table chdtdatabase.sanpham
 CREATE TABLE IF NOT EXISTS `sanpham` (
@@ -305,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   CONSTRAINT `FK_MANSX` FOREIGN KEY (`MANSX`) REFERENCES `nhasanxuat` (`MANSX`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.sanpham: ~25 rows (approximately)
+-- Dumping data for table chdtdatabase.sanpham: ~32 rows (approximately)
 INSERT INTO `sanpham` (`MASANPHAM`, `TENSANPHAM`, `MALOAI`, `MANSX`, `SOLUONG`, `GIATIEN`) VALUES
 	('SP10', 'IPhone 11 Pro Max', 'LSP2', 'NSX1', 4, 18000000),
 	('SP11', 'IPhone 12 Pro Max', 'LSP2', 'NSX1', 30, 25000000),
@@ -327,6 +316,12 @@ INSERT INTO `sanpham` (`MASANPHAM`, `TENSANPHAM`, `MALOAI`, `MANSX`, `SOLUONG`, 
 	('SP26', 'Sạc dự phòng Samsung EB-P3300', 'LSP4', 'NSX2', 10, 990000),
 	('SP27', 'Tai nghe AirPods Pro', 'LSP4', 'NSX1', 10, 5490000),
 	('SP3', 'Ipod Touch', 'LSP2', 'NSX4', 5, 13490000),
+	('SP30', 'Dien Thoai 07', 'LSP3', 'NSX2', 5, 3490000),
+	('SP32', 'Dien Thoai 01', 'LSP1', 'NSX1', 3, 8789000),
+	('SP34', 'Dien Thoai 02', 'LSP1', 'NSX2', 4, 25990000),
+	('SP35', 'Dien Thoai 04', 'LSP3', 'NSX4', 1, 30000000),
+	('SP38', 'Dien Thoai 08', 'LSP1', 'NSX4', 67, 2000000),
+	('SP39', 'Dien Thoai 09', 'LSP1', 'NSX1', 8, 10990000),
 	('SP4', 'Philips E105', 'LSP1', 'NSX5', 3, 280000),
 	('SP5', 'Philips E220', 'LSP1', 'NSX5', 3, 588000),
 	('SP7', 'IPhone X ', 'LSP2', 'NSX1', 10, 8000000),
