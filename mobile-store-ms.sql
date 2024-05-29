@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `khachhang` (
   PRIMARY KEY (`MAKH`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.khachhang: ~10 rows (approximately)
+-- Dumping data for table chdtdatabase.khachhang: ~9 rows (approximately)
 INSERT INTO `khachhang` (`MAKH`, `TENKH`, `HOKH`, `GIOITINH`, `DIACHI`, `SDT`, `EMAIL`, `TONGCHITIEU`) VALUES
 	('KH1', 'Dũng', 'Đặng Khải', 'Nữ', 'Ha Noi', '1234567890', 'dung@gmail.com', 100000000),
 	('KH2', 'Tiên', 'Đặng Thị Kiều', 'Nữ', 'Phú Yên\r\n', '0987654321', 'tien@gmail.com', 90000000),
@@ -223,14 +223,12 @@ CREATE TABLE IF NOT EXISTS `nhanvien` (
   PRIMARY KEY (`MANHANVIEN`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.nhanvien: ~12 rows (approximately)
+-- Dumping data for table chdtdatabase.nhanvien: ~13 rows (approximately)
 INSERT INTO `nhanvien` (`MANHANVIEN`, `HONV`, `TENNV`, `GIOITINH`, `EMAIL`, `DIACHI`, `CHUCVU`, `LUONG`, `SDT`, `HINHANH`, `CHUTHICH`) VALUES
 	('NV1', 'Phan Trí', 'Dũng', 'Nam', 'tridung@gmail.com', 'TP.HCM', 'Admin ', 10000000, '0523658325', '', ''),
-	('NV10', 'Hà Văn Dũng', 'Dũng', 'Nam', 'brave2112love@gmail.com', 'Gia Lai', 'Admin', 15000000, '0327250461', '', ''),
 	('NV11', 'Nguyễn Hùng', 'Bá', 'Nam', 'ba@gmail.com', 'Hải Phòng', 'Nhân viên nhập hàng', 7000000, '0262273658', '', ''),
-	('NV12', 'Hắc', 'Tún', 'Nam', 'admin@admin.com', '80 79Str Tan Quy D7 HCMC', 'admin', 10000, '0123456', 'NV1', 'NV1'),
-	('NV13', 'admin', 'admin', 'Nam', 'admin123@gmail.com', 'Gia Lai', 'Admin', 20000000, '1234567890', '', ''),
 	('NV14', 'Nguyễn Hải', 'Âu', 'Nam', 'au@gmail.com', 'Huế', 'Quản lý bán hàng', 7000000, '0256287354', '', ''),
+	('NV15', 'Quản trị', 'Admin', 'Nam', 'admin@gmail.com', 'TP.HCM', 'Admin', 20000000, '1234567890', '', 'Chú thích'),
 	('NV2', 'Nguyễn Thị Hồng', 'Hạnh', 'Nữ', 'hhanh@gmail.com', 'Bến Tre', 'Quản lý bán hàng', 7000000, '0265379232', '', ''),
 	('NV3', 'Phan Văn', 'Tài', 'Nam', 'tai@gmail.com', 'Kiên Giang', 'Quản lý bán hàng', 7000000, '0562659257', '', ''),
 	('NV4', 'Lê Công', 'Huynh', 'Nam', 'huynh@gmail.com', 'Sóc Trăng', 'Quản lý bán hàng', 7000000, '0952185625', '', ''),
@@ -294,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `sanpham` (
   CONSTRAINT `FK_MANSX` FOREIGN KEY (`MANSX`) REFERENCES `nhasanxuat` (`MANSX`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- Dumping data for table chdtdatabase.sanpham: ~32 rows (approximately)
+-- Dumping data for table chdtdatabase.sanpham: ~31 rows (approximately)
 INSERT INTO `sanpham` (`MASANPHAM`, `TENSANPHAM`, `MALOAI`, `MANSX`, `SOLUONG`, `GIATIEN`) VALUES
 	('SP10', 'IPhone 11 Pro Max', 'LSP2', 'NSX1', 4, 18000000),
 	('SP11', 'IPhone 12 Pro Max', 'LSP2', 'NSX1', 30, 25000000),
@@ -316,12 +314,6 @@ INSERT INTO `sanpham` (`MASANPHAM`, `TENSANPHAM`, `MALOAI`, `MANSX`, `SOLUONG`, 
 	('SP26', 'Sạc dự phòng Samsung EB-P3300', 'LSP4', 'NSX2', 10, 990000),
 	('SP27', 'Tai nghe AirPods Pro', 'LSP4', 'NSX1', 10, 5490000),
 	('SP3', 'Ipod Touch', 'LSP2', 'NSX4', 5, 13490000),
-	('SP30', 'Dien Thoai 07', 'LSP3', 'NSX2', 5, 3490000),
-	('SP32', 'Dien Thoai 01', 'LSP1', 'NSX1', 3, 8789000),
-	('SP34', 'Dien Thoai 02', 'LSP1', 'NSX2', 4, 25990000),
-	('SP35', 'Dien Thoai 04', 'LSP3', 'NSX4', 1, 30000000),
-	('SP38', 'Dien Thoai 08', 'LSP1', 'NSX4', 67, 2000000),
-	('SP39', 'Dien Thoai 09', 'LSP1', 'NSX1', 8, 10990000),
 	('SP4', 'Philips E105', 'LSP1', 'NSX5', 3, 280000),
 	('SP5', 'Philips E220', 'LSP1', 'NSX5', 3, 588000),
 	('SP7', 'IPhone X ', 'LSP2', 'NSX1', 10, 8000000),
